@@ -43,7 +43,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "no user message found" }, { status: 400 });
     }
 
-    const context = await retrieveContext(lastUserMessage.content, activeLang);
+    // Follow-ups like "how long was that?" have no entities of their own to embed, so
+    // retrieval alone would miss the right chunks. Fold in a little recent conversation
+    // (prior user turn in full, prior assistant turn truncated so it doesn't drown out
+    // the actual question) to keep retrieval grounded across a multi-turn exchange.
+    const retrievalQuery = messages
+      .slice(-4)
+      .map((m) => (m.role === "assistant" ? m.content.slice(0, 300) : m.content))
+      .join("\n");
+
+    const context = await retrieveContext(retrievalQuery, activeLang);
 
     const chatMessages: ChatMessage[] = [
       { role: "system", content: systemPrompt(activeLang) },
