@@ -1,0 +1,48 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { embedTexts } from "./nvidia";
+
+type Chunk = { text: string; embedding: number[] };
+type Index = { model: string; chunks: Chunk[] };
+
+let cachedIndex: Index | null = null;
+
+function loadIndex(): Index {
+  if (cachedIndex) return cachedIndex;
+  const file = path.join(process.cwd(), "src/data/index.json");
+  let raw: string;
+  try {
+    raw = readFileSync(file, "utf-8");
+  } catch {
+    throw new Error(
+      "src/data/index.json not found. Run `npm run build:index` after setting NVIDIA_API_KEY and NVIDIA_EMBED_MODEL."
+    );
+  }
+  cachedIndex = JSON.parse(raw) as Index;
+  return cachedIndex;
+}
+
+function cosineSimilarity(a: number[], b: number[]): number {
+  let dot = 0;
+  let normA = 0;
+  let normB = 0;
+  for (let i = 0; i < a.length; i++) {
+    dot += a[i] * b[i];
+    normA += a[i] * a[i];
+    normB += b[i] * b[i];
+  }
+  return dot / (Math.sqrt(normA) * Math.sqrt(normB));
+}
+
+export async function retrieveContext(question: string, topK = 6): Promise<string[]> {
+  const index = loadIndex();
+  const [queryEmbedding] = await embedTexts([question], "query");
+
+  const scored = index.chunks.map((chunk) => ({
+    text: chunk.text,
+    score: cosineSimilarity(queryEmbedding, chunk.embedding),
+  }));
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, topK).map((s) => s.text);
+}
