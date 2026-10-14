@@ -17,10 +17,14 @@ agosto de 2026, además de un Google Data Analytics Professional Certificate y u
 Cybersecurity Professional Certificate. Bilingüe en español (nativo) e inglés (nivel casi
 nativo, 5 años viviendo y estudiando en EE. UU.), con francés intermedio (B1/B2).
 
-## Puesto actual: Tutor de Proyectos — Bootcamp de Ingeniería de IA
+## Situación laboral actual: sí, Felipe está empleado actualmente
 
-**Project Tutor, Ironhack AI Engineering Bootcamp** — Remoto, desde septiembre de 2026
-(contrato hasta el 9 de noviembre de 2026).
+Actualmente, Felipe está empleado como **Project Tutor, Ironhack AI Engineering
+Bootcamp** — Remoto, desde septiembre de 2026 (contrato hasta el 9 de noviembre de 2026).
+No está desempleado ni ha tenido un vacío laboral: este puesto comenzó justo después de su
+última etapa en Kraken. Al mismo tiempo, está buscando activamente su próximo puesto a
+tiempo completo en Customer Success, Operaciones de Cliente o Soporte, una vez termine este
+contrato temporal de tutoría.
 - Lidera una clase de 19 estudiantes internacionales íntegramente en inglés, guiándolos en
   proyectos de Python, SQL, APIs, machine learning y LLMs.
 - Completó el mismo bootcamp en agosto de 2026 antes de pasar al rol de tutor, lo que le da

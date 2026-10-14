@@ -22,6 +22,12 @@ const SOURCES = [
   { file: "../src/data/knowledge_es.md", lang: "es" },
 ];
 
+// Headings whose chunk should always be included in context regardless of similarity
+// score — baseline facts (like "is he currently employed?") that a recruiter might
+// phrase in ways that don't embed close to the chunk itself, but that the bot should
+// never get wrong by omission.
+const PINNED_HEADINGS = ["Current employment status", "Situación laboral actual"];
+
 // Split on level-2 and level-3 headings ("## ..." / "### ..."), so each role/entry
 // under a broad section (e.g. "Work experience") becomes its own chunk. Each level-3
 // chunk is prefixed with its parent level-2 heading for context.
@@ -33,7 +39,10 @@ function chunkMarkdown(source) {
 
   function flush() {
     const text = current.join("\n").trim();
-    if (text) chunks.push(text);
+    if (text) {
+      const pinned = PINNED_HEADINGS.some((h) => currentH2.startsWith(h));
+      chunks.push({ text, pinned });
+    }
     current = [];
   }
 
@@ -56,8 +65,8 @@ function chunkMarkdown(source) {
 const allChunks = [];
 for (const { file, lang } of SOURCES) {
   const source = readFileSync(new URL(file, import.meta.url), "utf-8");
-  for (const text of chunkMarkdown(source)) {
-    allChunks.push({ lang, text });
+  for (const { text, pinned } of chunkMarkdown(source)) {
+    allChunks.push({ lang, text, pinned });
   }
 }
 

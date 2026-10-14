@@ -17,10 +17,13 @@ Certificate and a Google Cybersecurity Professional Certificate. Bilingual in Sp
 (native) and English (near-native, 5 years living and studying in the USA), with
 intermediate French (B1/B2).
 
-## Current role: AI Engineering Bootcamp Project Tutor
+## Current employment status: yes, Felipe is currently employed
 
-**Project Tutor, Ironhack AI Engineering Bootcamp** — Remote, since September 2026
-(contract through November 9, 2026).
+As of now, Felipe is currently employed as a **Project Tutor, Ironhack AI Engineering
+Bootcamp** — Remote, since September 2026 (contract through November 9, 2026). He is not
+unemployed and has not had a gap: this role followed directly after his most recent Kraken
+stint. At the same time, he is actively looking for his next full-time role in Customer
+Success, Client Operations, or Support once this short-term tutoring contract wraps up.
 - Leads a class of 19 international students entirely in English, guiding them through
   Python, SQL, APIs, machine learning, and LLM-based projects.
 - Completed the same bootcamp himself in August 2026 before moving into the tutoring role,

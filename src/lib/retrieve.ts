@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { embedTexts } from "./nvidia";
 
-type Chunk = { text: string; embedding: number[]; lang?: "en" | "es" };
+type Chunk = { text: string; embedding: number[]; lang?: "en" | "es"; pinned?: boolean };
 type Index = { model: string; chunks: Chunk[] };
 
 let cachedIndex: Index | null = null;
@@ -51,9 +51,17 @@ export async function retrieveContext(
 
   const scored = pool.map((chunk) => ({
     text: chunk.text,
+    pinned: chunk.pinned ?? false,
     score: cosineSimilarity(queryEmbedding, chunk.embedding),
   }));
 
   scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, topK).map((s) => s.text);
+
+  // Pinned chunks (baseline facts like current employment status) are always included,
+  // regardless of similarity score — a recruiter's phrasing shouldn't be able to make
+  // the bot miss them. They still count toward topK so context doesn't balloon.
+  const pinned = scored.filter((s) => s.pinned);
+  const topScored = scored.filter((s) => !s.pinned).slice(0, topK - pinned.length);
+
+  return [...pinned, ...topScored].map((s) => s.text);
 }
