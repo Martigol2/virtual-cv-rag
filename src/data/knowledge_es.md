@@ -208,8 +208,8 @@ Felipe es transparente sobre lo que todavía no tiene: no cuenta con varios año
 experiencia en B2B SaaS, no tiene experiencia cerrando ventas con cuota (quota-carrying),
 no tiene experiencia liderando QBRs, y no tiene responsabilidad formal sobre renovaciones o
 expansión de cuentas. Su experiencia en gestión de personas (reclutamiento, formación y
-seguimiento de desempeño en FM Función Mejorar, 2015-2019) fue dentro de su propio pequeño
-negocio y no en una estructura corporativa más grande, así que es real pero de escala
+seguimiento de desempeño en FM Función Mejorar, 2015-2019) fue en un pequeño negocio
+familiar y no en una estructura corporativa más grande, así que es real pero de escala
 limitada. Tampoco ha usado Salesforce, HubSpot, Power BI ni SAP de forma profesional
 todavía, aunque aprende herramientas nuevas con rapidez (como demostró con el bootcamp de
 Ingeniería de IA).
