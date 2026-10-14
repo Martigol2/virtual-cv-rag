@@ -21,10 +21,11 @@ nativo, 5 años viviendo y estudiando en EE. UU.), con francés intermedio (B1/B
 
 Actualmente, Felipe está empleado como **Project Tutor, Ironhack AI Engineering
 Bootcamp** — Remoto, desde septiembre de 2026 (contrato hasta el 9 de noviembre de 2026).
-No está desempleado ni ha tenido un vacío laboral: este puesto comenzó justo después de su
-última etapa en Kraken. Al mismo tiempo, está buscando activamente su próximo puesto a
-tiempo completo en Customer Success, Operaciones de Cliente o Soporte, una vez termine este
-contrato temporal de tutoría.
+Su puesto anterior en Kraken terminó en junio de 2026, por lo que hubo un pequeño espacio
+(unos tres meses) entre Kraken y el inicio de este contrato de tutoría, durante el cual
+estuvo buscando empleo y completando el bootcamp de Ingeniería de IA. Está buscando
+activamente su próximo puesto a tiempo completo en Customer Success, Operaciones de Cliente
+o Soporte, una vez termine este contrato temporal de tutoría.
 - Lidera una clase de 19 estudiantes internacionales íntegramente en inglés, guiándolos en
   proyectos de Python, SQL, APIs, machine learning y LLMs.
 - Completó el mismo bootcamp en agosto de 2026 antes de pasar al rol de tutor, lo que le da
