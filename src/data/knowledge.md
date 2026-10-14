@@ -195,7 +195,9 @@ companies, or trust-and-safety / compliance-adjacent roles at fintech and crypto
 ## Honest gaps
 
 Felipe is upfront about what he doesn't yet have: no multi-year B2B SaaS tenure, no
-quota-carrying sales or deal-closing experience, no experience running QBRs, no formal
-ownership of renewals or expansion revenue, and no formal people-management experience.
-He also hasn't used Salesforce, HubSpot, Power BI, or SAP professionally yet, though he
-picks up new tools quickly (demonstrated by the AI Engineering bootcamp).
+quota-carrying sales or deal-closing experience, no experience running QBRs, and no formal
+ownership of renewals or expansion revenue. His people-management experience (recruitment,
+training, and performance oversight at FM Función Mejorar, 2015-2019) was within his own
+small business rather than inside a larger corporate structure, so it's real but limited in
+scale. He also hasn't used Salesforce, HubSpot, Power BI, or SAP professionally yet, though
+he picks up new tools quickly (demonstrated by the AI Engineering bootcamp).
