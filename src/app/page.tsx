@@ -35,6 +35,7 @@ const COPY: Record<
           "Tell me about his time at FundRock LIS",
           "What did he do at MAE Sports & Education?",
           "What was his role as a Financial Advisor at OVB?",
+          "What did he do at YouTOOProject?",
           "What did he build with Becas & Sports?",
         ],
       },
@@ -51,7 +52,6 @@ const COPY: Record<
         prompts: [
           "What kind of roles is he looking for?",
           "What's his experience with compliance or KYC?",
-          "What are his gaps?",
           "What makes his background distinctive?",
         ],
       },
@@ -76,6 +76,7 @@ const COPY: Record<
           "Cuéntame sobre su etapa en FundRock LIS",
           "¿Qué hizo en MAE Sports & Education?",
           "¿Cuál fue su rol como Financial Advisor en OVB?",
+          "¿Qué hizo en YouTOOProject?",
           "¿Qué construyó con Becas & Sports?",
         ],
       },
@@ -92,7 +93,6 @@ const COPY: Record<
         prompts: [
           "¿Qué tipo de roles está buscando?",
           "¿Qué experiencia tiene en compliance o KYC?",
-          "¿Cuáles son sus puntos débiles?",
           "¿Qué hace distintivo su perfil?",
         ],
       },
