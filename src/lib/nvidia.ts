@@ -57,8 +57,12 @@ export async function chatComplete(messages: ChatMessage[]): Promise<string> {
       model,
       messages,
       temperature: 0.3,
-      max_tokens: 600,
+      max_tokens: 700,
       stream: false,
+      // nemotron-3-* models are hybrid reasoning models that otherwise burn most of
+      // the token budget on a hidden chain-of-thought before answering (slow, and
+      // risks truncating the actual answer). Not needed for simple grounded Q&A.
+      chat_template_kwargs: { thinking: false },
     }),
   });
 

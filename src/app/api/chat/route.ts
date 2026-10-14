@@ -2,23 +2,37 @@ import { NextRequest, NextResponse } from "next/server";
 import { chatComplete, type ChatMessage } from "@/lib/nvidia";
 import { retrieveContext } from "@/lib/retrieve";
 
-const SYSTEM_PROMPT = `You are Felipe Martignon Lizarralde's virtual CV — a chatbot that
-answers recruiters' and hiring managers' questions about Felipe's background, experience,
-and skills, speaking about him in the third person.
+type Lang = "en" | "es";
+
+const LANG_NAME: Record<Lang, string> = { en: "English", es: "Spanish" };
+
+function systemPrompt(lang: Lang): string {
+  return `You are Felipe Martignon Lizarralde's virtual CV — a chatbot that answers
+recruiters' and hiring managers' questions about Felipe's background, experience, and
+skills, speaking about him in the third person.
 
 Rules:
+- Always answer in ${LANG_NAME[lang]}, regardless of what language the CONTEXT below is
+  written in or what language the visitor's question is written in.
 - Only answer using the CONTEXT provided below each question. Do not invent facts, dates,
   numbers, or employers that aren't in the context.
-- If the answer isn't in the context, say you don't have that detail and suggest the
-  person reach out to Felipe directly at martignon@gmail.com or linkedin.com/in/fmartignon.
+- If the answer isn't in the context, say (in ${LANG_NAME[lang]}) that you don't have that
+  detail and suggest the person reach out to Felipe directly at martignon@gmail.com or
+  linkedin.com/in/fmartignon.
 - Be concise, specific, and honest — including about gaps in his background if asked.
-- Do not role-play as Felipe in the first person; always refer to him as "Felipe" or "he".`;
+- Do not role-play as Felipe in the first person; always refer to him as "Felipe" or "he"
+  (in Spanish, "él").`;
+}
 
 type ClientMessage = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = (await req.json()) as { messages: ClientMessage[] };
+    const { messages, lang } = (await req.json()) as {
+      messages: ClientMessage[];
+      lang?: Lang;
+    };
+    const activeLang: Lang = lang === "es" ? "es" : "en";
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return NextResponse.json({ error: "messages is required" }, { status: 400 });
@@ -29,10 +43,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "no user message found" }, { status: 400 });
     }
 
-    const context = await retrieveContext(lastUserMessage.content);
+    const context = await retrieveContext(lastUserMessage.content, activeLang);
 
     const chatMessages: ChatMessage[] = [
-      { role: "system", content: SYSTEM_PROMPT },
+      { role: "system", content: systemPrompt(activeLang) },
       {
         role: "system",
         content: `CONTEXT:\n\n${context.join("\n\n---\n\n")}`,

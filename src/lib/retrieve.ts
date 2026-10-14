@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { embedTexts } from "./nvidia";
 
-type Chunk = { text: string; embedding: number[] };
+type Chunk = { text: string; embedding: number[]; lang?: "en" | "es" };
 type Index = { model: string; chunks: Chunk[] };
 
 let cachedIndex: Index | null = null;
@@ -34,11 +34,22 @@ function cosineSimilarity(a: number[], b: number[]): number {
   return dot / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 
-export async function retrieveContext(question: string, topK = 6): Promise<string[]> {
+export async function retrieveContext(
+  question: string,
+  lang: "en" | "es" = "en",
+  topK = 6
+): Promise<string[]> {
   const index = loadIndex();
   const [queryEmbedding] = await embedTexts([question], "query");
 
-  const scored = index.chunks.map((chunk) => ({
+  // Prefer chunks written in the active UI language, so answers are grounded in
+  // natural same-language source text. Fall back to the full set if a language
+  // isn't tagged (e.g. an older index built before bilingual support).
+  const pool = index.chunks.some((c) => c.lang)
+    ? index.chunks.filter((c) => c.lang === lang)
+    : index.chunks;
+
+  const scored = pool.map((chunk) => ({
     text: chunk.text,
     score: cosineSimilarity(queryEmbedding, chunk.embedding),
   }));

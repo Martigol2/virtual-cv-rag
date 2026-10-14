@@ -1,4 +1,4 @@
-// Chunks src/data/knowledge.md by heading, embeds each chunk with the NVIDIA
+// Chunks the EN/ES knowledge files by heading, embeds each chunk with the NVIDIA
 // embeddings API, and writes src/data/index.json for the chat API to search.
 // Usage: npm run build:index
 
@@ -17,37 +17,51 @@ if (!embedModel) {
   process.exit(1);
 }
 
-const source = readFileSync(new URL("../src/data/knowledge.md", import.meta.url), "utf-8");
+const SOURCES = [
+  { file: "../src/data/knowledge.md", lang: "en" },
+  { file: "../src/data/knowledge_es.md", lang: "es" },
+];
 
 // Split on level-2 and level-3 headings ("## ..." / "### ..."), so each role/entry
 // under a broad section (e.g. "Work experience") becomes its own chunk. Each level-3
 // chunk is prefixed with its parent level-2 heading for context.
-const lines = source.split("\n");
-const chunks = [];
-let current = [];
-let currentH2 = "";
+function chunkMarkdown(source) {
+  const lines = source.split("\n");
+  const chunks = [];
+  let current = [];
+  let currentH2 = "";
 
-function flush() {
-  const text = current.join("\n").trim();
-  if (text) chunks.push(text);
-  current = [];
+  function flush() {
+    const text = current.join("\n").trim();
+    if (text) chunks.push(text);
+    current = [];
+  }
+
+  for (const line of lines) {
+    if (/^## /.test(line)) {
+      flush();
+      currentH2 = line.replace(/^##\s+/, "");
+      current.push(line);
+    } else if (/^### /.test(line)) {
+      flush();
+      current.push(`## ${currentH2}`, line);
+    } else {
+      current.push(line);
+    }
+  }
+  flush();
+  return chunks;
 }
 
-for (const line of lines) {
-  if (/^## /.test(line)) {
-    flush();
-    currentH2 = line.replace(/^##\s+/, "");
-    current.push(line);
-  } else if (/^### /.test(line)) {
-    flush();
-    current.push(`## ${currentH2}`, line);
-  } else {
-    current.push(line);
+const allChunks = [];
+for (const { file, lang } of SOURCES) {
+  const source = readFileSync(new URL(file, import.meta.url), "utf-8");
+  for (const text of chunkMarkdown(source)) {
+    allChunks.push({ lang, text });
   }
 }
-flush();
 
-console.log(`Embedding ${chunks.length} chunks with ${embedModel}...`);
+console.log(`Embedding ${allChunks.length} chunks (EN + ES) with ${embedModel}...`);
 
 const res = await fetch("https://integrate.api.nvidia.com/v1/embeddings", {
   method: "POST",
@@ -57,7 +71,7 @@ const res = await fetch("https://integrate.api.nvidia.com/v1/embeddings", {
   },
   body: JSON.stringify({
     model: embedModel,
-    input: chunks,
+    input: allChunks.map((c) => c.text),
     input_type: "passage",
     encoding_format: "float",
   }),
@@ -69,7 +83,7 @@ if (!res.ok) {
 }
 
 const { data } = await res.json();
-const indexed = chunks.map((text, i) => ({ text, embedding: data[i].embedding }));
+const indexed = allChunks.map((c, i) => ({ ...c, embedding: data[i].embedding }));
 
 writeFileSync(
   new URL("../src/data/index.json", import.meta.url),
