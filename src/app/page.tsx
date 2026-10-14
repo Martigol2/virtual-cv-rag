@@ -5,13 +5,16 @@ import { useRef, useState } from "react";
 type Message = { role: "user" | "assistant"; content: string };
 type Lang = "en" | "es";
 
+type Topic = { label: string; prompts: string[] };
+
 const COPY: Record<
   Lang,
   {
     tagline: string;
     subtitle: string;
     greeting: string;
-    suggestions: string[];
+    topics: Topic[];
+    topicsToggle: { show: string; hide: string };
     placeholder: string;
     send: string;
     thinking: string;
@@ -24,12 +27,36 @@ const COPY: Record<
     subtitle: "An AI-powered virtual CV — ask about his experience and skills.",
     greeting:
       "Hi, I'm Felipe Martignon's virtual CV. Ask me about his experience, skills, or what he's looking for next.",
-    suggestions: [
-      "What has Felipe been doing at Kraken?",
-      "What's his experience with compliance or KYC?",
-      "Why is he learning AI engineering?",
-      "What kind of roles is he looking for?",
+    topics: [
+      {
+        label: "Experience",
+        prompts: [
+          "What has Felipe been doing at Kraken?",
+          "Tell me about his time at FundRock LIS",
+          "What did he do at MAE Sports & Education?",
+          "What was his role as a Financial Advisor at OVB?",
+          "What did he build with Becas & Sports?",
+        ],
+      },
+      {
+        label: "AI & education",
+        prompts: [
+          "Why is he learning AI engineering?",
+          "What certifications does he have?",
+          "What languages does he speak?",
+        ],
+      },
+      {
+        label: "Fit",
+        prompts: [
+          "What kind of roles is he looking for?",
+          "What's his experience with compliance or KYC?",
+          "What are his gaps?",
+          "What makes his background distinctive?",
+        ],
+      },
     ],
+    topicsToggle: { show: "Suggested topics", hide: "Hide topics" },
     placeholder: "Ask about Felipe's experience...",
     send: "Send",
     thinking: "Thinking…",
@@ -41,12 +68,36 @@ const COPY: Record<
     subtitle: "Un CV virtual con IA — pregunta sobre su experiencia y habilidades.",
     greeting:
       "Hola, soy el CV virtual de Felipe Martignon. Pregúntame sobre su experiencia, sus habilidades o qué busca a continuación.",
-    suggestions: [
-      "¿Qué ha estado haciendo Felipe en Kraken?",
-      "¿Qué experiencia tiene en compliance o KYC?",
-      "¿Por qué está aprendiendo ingeniería de IA?",
-      "¿Qué tipo de roles está buscando?",
+    topics: [
+      {
+        label: "Experiencia",
+        prompts: [
+          "¿Qué ha estado haciendo Felipe en Kraken?",
+          "Cuéntame sobre su etapa en FundRock LIS",
+          "¿Qué hizo en MAE Sports & Education?",
+          "¿Cuál fue su rol como Financial Advisor en OVB?",
+          "¿Qué construyó con Becas & Sports?",
+        ],
+      },
+      {
+        label: "IA y formación",
+        prompts: [
+          "¿Por qué está aprendiendo ingeniería de IA?",
+          "¿Qué certificaciones tiene?",
+          "¿Qué idiomas habla?",
+        ],
+      },
+      {
+        label: "Encaje",
+        prompts: [
+          "¿Qué tipo de roles está buscando?",
+          "¿Qué experiencia tiene en compliance o KYC?",
+          "¿Cuáles son sus puntos débiles?",
+          "¿Qué hace distintivo su perfil?",
+        ],
+      },
     ],
+    topicsToggle: { show: "Temas sugeridos", hide: "Ocultar temas" },
     placeholder: "Pregunta sobre la experiencia de Felipe...",
     send: "Enviar",
     thinking: "Pensando…",
@@ -65,6 +116,7 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [topicsOpen, setTopicsOpen] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   // Reset the conversation to a fresh greeting when the language changes.
@@ -192,19 +244,37 @@ export default function Home() {
             <div ref={bottomRef} />
           </div>
 
-          {messages.length <= 1 && (
-            <div className="flex flex-wrap gap-2">
-              {t.suggestions.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => send(s)}
-                  className="rounded-full border border-slate-200 px-3 py-1.5 text-xs text-slate-600 transition-colors hover:border-slate-400 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-slate-50"
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
-          )}
+          <div className="border-t border-slate-100 pt-3 dark:border-slate-800">
+            <button
+              onClick={() => setTopicsOpen((v) => !v)}
+              className="flex w-full items-center justify-between text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
+            >
+              {topicsOpen ? t.topicsToggle.hide : t.topicsToggle.show}
+              <span className={`transition-transform ${topicsOpen ? "rotate-180" : ""}`}>⌄</span>
+            </button>
+
+            {topicsOpen && (
+              <div className="mt-3 flex flex-col gap-2.5">
+                {t.topics.map((topic) => (
+                  <div key={topic.label} className="flex flex-wrap items-center gap-1.5">
+                    <span className="mr-1 shrink-0 text-[11px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
+                      {topic.label}
+                    </span>
+                    {topic.prompts.map((p) => (
+                      <button
+                        key={p}
+                        onClick={() => send(p)}
+                        disabled={loading}
+                        className="rounded-full border border-slate-200 px-3 py-1.5 text-xs text-slate-600 transition-colors hover:border-slate-400 hover:text-slate-900 disabled:opacity-50 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-slate-50"
+                      >
+                        {p}
+                      </button>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
           <form
             onSubmit={(e) => {
