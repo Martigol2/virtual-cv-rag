@@ -69,7 +69,7 @@ Remoto, may. 2024 – may. 2025 (primera etapa)
 
 ### Financial Advisor — OVB Allfinanz España
 Valencia, España, oct. 2023 – abr. 2024
-- Construyó una cartera de clientes consultiva de 0 a 10 clientes, asesorando en
+- Partiendo de cero, construyó una cartera consultiva de 10 clientes, asesorando en
   planificación financiera y estrategias de protección de activos en un entorno orientado
   a objetivos.
 
