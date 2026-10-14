@@ -302,7 +302,13 @@ export default function Home() {
         <footer className="mt-4 flex flex-col items-center gap-1 text-center text-xs text-slate-400 dark:text-slate-600">
           <p>{t.footer}</p>
           <p>
-            martignon@gmail.com ·{" "}
+            <a
+              href="mailto:martignon@gmail.com"
+              className="underline decoration-dotted hover:text-slate-600 dark:hover:text-slate-300"
+            >
+              martignon@gmail.com
+            </a>{" "}
+            ·{" "}
             <a
               href="https://linkedin.com/in/fmartignon"
               target="_blank"
