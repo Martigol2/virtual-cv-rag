@@ -54,16 +54,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "no user message found" }, { status: 400 });
     }
 
-    // Follow-ups like "how long was that?" have no entities of their own to embed, so
-    // retrieval alone would miss the right chunks. Fold in a little recent conversation
-    // (prior user turn in full, prior assistant turn truncated so it doesn't drown out
-    // the actual question) to keep retrieval grounded across a multi-turn exchange.
-    const retrievalQuery = messages
+    // Retrieve twice and merge. The bare question alone gives a clean, undiluted signal
+    // for topic switches (e.g. clicking a different suggested-topic chip mid-conversation
+    // — common here since the topic list stays visible throughout). But a pronoun-only
+    // follow-up like "how long was that?" has no entity of its own to embed, so it also
+    // needs recent conversation folded in to find the right chunk. Using only the folded
+    // query caused topic-switch questions to retrieve the PREVIOUS topic's chunks instead
+    // of their own, since a verbose prior answer can dominate the embedding over a short
+    // new question.
+    const historyQuery = messages
       .slice(-4)
       .map((m) => (m.role === "assistant" ? m.content.slice(0, 300) : m.content))
       .join("\n");
 
-    const context = await retrieveContext(retrievalQuery, activeLang);
+    const [bareContext, historyContext] = await Promise.all([
+      retrieveContext(lastUserMessage.content, activeLang, 4),
+      retrieveContext(historyQuery, activeLang, 4),
+    ]);
+
+    const context = [...bareContext, ...historyContext].filter(
+      (text, i, arr) => arr.indexOf(text) === i
+    );
 
     const chatMessages: ChatMessage[] = [
       { role: "system", content: systemPrompt(activeLang) },
