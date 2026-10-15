@@ -105,7 +105,8 @@ Bogotá, Colombia, sep. 2014 – ago. 2019 (5 años)
   5 años como fundador independiente.
 
 ### Manager — FM Función Mejorar
-Bogotá, Colombia, ene. 2015 – may. 2019 (4 años y 5 meses, en paralelo a Becas & Sports)
+Bogotá, Colombia, ene. 2015 – may. 2019 (4 años y 5 meses, en paralelo a Becas & Sports) —
+un pequeño negocio familiar, no propio de Felipe.
 - Gestionó procesos operativos y administrativos en múltiples líneas de negocio,
   incluyendo coordinación de equipos, gestión presupuestaria y optimización de procesos.
 - Supervisó la selección de personal, la planificación operativa y el seguimiento del
@@ -169,7 +170,6 @@ KYC/Cumplimiento, Análisis de Datos (SQL, Python), Coordinación Multidisciplin
 de Stakeholders, Mejora de Procesos, Venta Consultiva, APIs, LLMs y desarrollo de
 aplicaciones de IA (RAG, prompting, herramientas de agentes). Habilidades mejor valoradas
 en LinkedIn: Generative AI, Transfer Learning, AI Agents. Herramientas: Zendesk, Pipedrive.
-Todavía no tiene experiencia práctica con Salesforce, HubSpot, Power BI ni SAP.
 
 ## Certificaciones
 
@@ -201,15 +201,3 @@ IA, y experiencia real como docente liderando una clase internacional, es una co
 poco habitual. Lo posiciona bien para roles en la intersección entre operaciones de
 cliente y el espacio de IA/compliance tech — por ejemplo, roles de cara al cliente en
 empresas de IA, o roles de trust & safety / adyacentes a compliance en fintech y crypto.
-
-## Carencias, con honestidad
-
-Felipe es transparente sobre lo que todavía no tiene: no cuenta con varios años de
-experiencia en B2B SaaS, no tiene experiencia cerrando ventas con cuota (quota-carrying),
-no tiene experiencia liderando QBRs, y no tiene responsabilidad formal sobre renovaciones o
-expansión de cuentas. Su experiencia en gestión de personas (reclutamiento, formación y
-seguimiento de desempeño en FM Función Mejorar, 2015-2019) fue en un pequeño negocio
-familiar y no en una estructura corporativa más grande, así que es real pero de escala
-limitada. Tampoco ha usado Salesforce, HubSpot, Power BI ni SAP de forma profesional
-todavía, aunque aprende herramientas nuevas con rapidez (como demostró con el bootcamp de
-Ingeniería de IA).

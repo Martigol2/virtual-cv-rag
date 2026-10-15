@@ -99,7 +99,8 @@ Bogotá, Colombia, Sep 2014 – Aug 2019 (5 years)
   5 years as an independent founder.
 
 ### Manager — FM Función Mejorar
-Bogotá, Colombia, Jan 2015 – May 2019 (4 years 5 months, concurrent with Becas & Sports)
+Bogotá, Colombia, Jan 2015 – May 2019 (4 years 5 months, concurrent with Becas & Sports) —
+a small family business, not Felipe's own.
 - Managed operational and administrative processes across multiple business activities,
   including team coordination, budget management, and process optimization.
 - Oversaw personnel selection, operational planning, and performance tracking.
@@ -158,8 +159,7 @@ Account Management, Client Onboarding, Case & Escalation Management, KYC/Complia
 coordination, Data Analysis (SQL, Python), Cross-Functional Coordination, Stakeholder
 Management, Process Improvement, Consultative Sales, APIs, LLMs and AI application
 building (RAG, prompting, agent tooling). Top self-rated skills on LinkedIn: Generative AI,
-Transfer Learning, AI Agents. Tools: Zendesk, Pipedrive. Does not yet have hands-on
-Salesforce, HubSpot, Power BI, or SAP experience.
+Transfer Learning, AI Agents. Tools: Zendesk, Pipedrive.
 
 ## Certifications
 
@@ -191,13 +191,3 @@ AI Engineering bootcamp, and real teaching experience leading an international c
 unusual mix. It positions him well for roles that sit at the intersection of client
 operations and the AI/compliance-tech space — for example, customer-facing roles at AI
 companies, or trust-and-safety / compliance-adjacent roles at fintech and crypto firms.
-
-## Honest gaps
-
-Felipe is upfront about what he doesn't yet have: no multi-year B2B SaaS tenure, no
-quota-carrying sales or deal-closing experience, no experience running QBRs, and no formal
-ownership of renewals or expansion revenue. His people-management experience (recruitment,
-training, and performance oversight at FM Función Mejorar, 2015-2019) was at a small family
-business rather than inside a larger corporate structure, so it's real but limited in
-scale. He also hasn't used Salesforce, HubSpot, Power BI, or SAP professionally yet, though
-he picks up new tools quickly (demonstrated by the AI Engineering bootcamp).
