@@ -1,7 +1,8 @@
 # About Felipe Martignon Lizarralde
 
 Felipe Martignon Lizarralde is a Colombian professional based in Valencia, Spain, open to
-relocating within Spain for the right role. He has 5+ years of client-facing experience
+relocating within Spain (mainly Barcelona and Madrid) and willing to explore options
+outside Spain for the right role. He has 5+ years of client-facing experience
 across fintech, crypto, and SaaS, with a growing specialization in AI engineering. Contact:
 martignon@gmail.com, linkedin.com/in/fmartignon.
 
@@ -180,8 +181,9 @@ USA for 5 years. French — intermediate (B1/B2), not business-fluent.
 
 Felipe is targeting Customer Success, Support, Onboarding, Implementation, and Client
 Operations roles, ideally at fintech, crypto, compliance tech, cybersecurity, or AI
-companies. He's based in Valencia, Spain, and open to relocating to Barcelona, Madrid,
-Bilbao, or Tenerife within Spain.
+companies. He's based in Valencia, Spain, and open to relocating within Spain, mainly to
+Barcelona and Madrid. He's also willing to explore options outside Spain for the right
+role.
 
 ## What makes Felipe's background distinctive
 

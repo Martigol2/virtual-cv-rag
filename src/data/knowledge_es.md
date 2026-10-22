@@ -1,7 +1,8 @@
 # Sobre Felipe Martignon Lizarralde
 
 Felipe Martignon Lizarralde es un profesional colombiano afincado en Valencia, España,
-abierto a reubicarse dentro de España por el puesto adecuado. Tiene más de 5 años de
+abierto a reubicarse dentro de España (principalmente a Barcelona y Madrid) y dispuesto a
+explorar opciones fuera de España por el puesto adecuado. Tiene más de 5 años de
 experiencia de cara al cliente en fintech, crypto y SaaS, y se está especializando cada vez
 más en ingeniería de IA. Contacto: martignon@gmail.com, linkedin.com/in/fmartignon.
 
@@ -189,8 +190,9 @@ EE. UU. Francés — intermedio (B1/B2), no es fluido a nivel profesional.
 
 Felipe busca roles de Customer Success, Soporte, Onboarding, Implementación y Operaciones
 de Cliente, idealmente en empresas de fintech, crypto, compliance tech, ciberseguridad o
-IA. Está en Valencia, España, y abierto a reubicarse en Barcelona, Madrid, Bilbao o
-Tenerife dentro de España.
+IA. Está en Valencia, España, y abierto a reubicarse dentro de España, principalmente a
+Barcelona y Madrid. También está dispuesto a explorar opciones fuera de España por el
+puesto adecuado.
 
 ## Qué hace distintivo el perfil de Felipe
 
