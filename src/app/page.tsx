@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import posthog from "posthog-js";
 
 type Message = { role: "user" | "assistant"; content: string };
 type Lang = "en" | "es";
@@ -135,6 +136,8 @@ export default function Home() {
     setInput("");
     setLoading(true);
     setError(null);
+
+    posthog.capture("chat_question_asked", { question, lang });
 
     try {
       const res = await fetch("/api/chat", {
