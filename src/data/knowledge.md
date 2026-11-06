@@ -55,9 +55,11 @@ Valencia, Spain, Jul 2025 – Feb 2026
   process improvements.
 
 ### Account Security Analyst — Kraken Crypto Exchange
-Remote, May 2024 – May 2025 (first stint)
-- Managed 80–100 customer cases daily, applying verification and authentication protocols
-  to resolve account access and security issues.
+Remote, May 2024 – May 2025 (first stint, fixed-term contract)
+- Role was part of Kraken's anti-fraud operation. Managed 80–100 customer cases daily,
+  applying verification and authentication protocols to resolve account access and
+  security issues.
+- Awarded Account Security Analyst of the Month in October 2024.
 - Traced a recurring issue to a re-verification process that was silently de-allocating
   customer assets: found 10 related cases over the course of a month, drove a
   cross-team fix together with the KYC team, and got an issue resolved that had gone

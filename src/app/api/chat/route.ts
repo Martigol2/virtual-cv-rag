@@ -76,9 +76,14 @@ export async function POST(req: NextRequest) {
       .map((m) => (m.role === "assistant" ? m.content.slice(0, 300) : m.content))
       .join("\n");
 
+    // historyContext gets a deeper topK than bareContext: a vague continuation like
+    // "tell me more" has broad overview chunks (bio, career goals, what makes him
+    // distinctive) dominating the top of the ranking, which can push specific job chunks
+    // (e.g. Kraken) just past a shallow cutoff — while the bare query alone, having no
+    // real content, contributes near-random noise rather than a useful signal.
     const [bareContext, historyContext] = await Promise.all([
       retrieveContext(lastUserMessage.content, activeLang, 4),
-      retrieveContext(historyQuery, activeLang, 4),
+      retrieveContext(historyQuery, activeLang, 7),
     ]);
 
     const context = [...bareContext, ...historyContext].filter(
