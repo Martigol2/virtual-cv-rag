@@ -21,7 +21,7 @@ intermediate French (B1/B2).
 ## Current employment status: yes, Felipe is currently employed
 
 As of now, Felipe is currently employed as a **Project Tutor, Ironhack AI Engineering
-Bootcamp** — Remote, since September 2026 (contract through November 9, 2026). His prior
+Bootcamp** — Remote, since September 2026 (contract through Friday, November 13, 2026). His prior
 role at Kraken ended in June 2026, so there was a short gap (about three months) between
 Kraken and starting this tutoring contract, during which he was job-searching and
 completing the AI Engineering bootcamp himself. He is actively looking for his next
