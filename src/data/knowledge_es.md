@@ -186,7 +186,7 @@ en LinkedIn: Generative AI, Transfer Learning, AI Agents. Herramientas: Zendesk,
 ## Idiomas
 
 Español — nativo (C2). Inglés — nivel casi nativo, tras vivir y estudiar 5 años en
-EE. UU. Francés — intermedio (B1/B2), no es fluido a nivel profesional.
+EE. UU. Francés — intermedio (B1/B2).
 
 ## Qué busca Felipe
 

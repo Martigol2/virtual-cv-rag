@@ -177,7 +177,7 @@ Transfer Learning, AI Agents. Tools: Zendesk, Pipedrive.
 ## Languages
 
 Spanish — native (C2). English — native-level proficiency, having lived and studied in the
-USA for 5 years. French — intermediate (B1/B2), not business-fluent.
+USA for 5 years. French — intermediate (B1/B2).
 
 ## What Felipe is looking for
 
