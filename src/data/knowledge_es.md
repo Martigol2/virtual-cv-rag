@@ -182,6 +182,7 @@ en LinkedIn: Generative AI, Transfer Learning, AI Agents. Herramientas: Zendesk,
 - Google Data Analytics Professional Certificate — Coursera, dic. 2023
 - Customer Service Foundations
 - Fundamentos de Big Data (técnicas y conceptos)
+- HubSpot Academy — Certificación del software de Service Hub (nov. 2026 – dic. 2027)
 
 ## Idiomas
 

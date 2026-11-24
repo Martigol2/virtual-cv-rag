@@ -173,6 +173,7 @@ Transfer Learning, AI Agents. Tools: Zendesk, Pipedrive.
 - Google Data Analytics Professional Certificate — Coursera, Dec 2023
 - Customer Service Foundations
 - Fundamentos de Big Data (técnicas y conceptos)
+- HubSpot Academy — Service Hub Software Certification (Nov 2026 – Dec 2027)
 
 ## Languages
 
