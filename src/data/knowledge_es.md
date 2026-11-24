@@ -181,7 +181,7 @@ en LinkedIn: Generative AI, Transfer Learning, AI Agents. Herramientas: Zendesk,
 - Programa especializado: Ciberseguridad de Google — Coursera
 - Google Data Analytics Professional Certificate — Coursera, dic. 2023
 - Customer Service Foundations
-- Fundamentos de Big Data: Técnicas y Conceptos
+- Fundamentos de Big Data (técnicas y conceptos)
 
 ## Idiomas
 
